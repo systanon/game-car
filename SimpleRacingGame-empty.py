@@ -77,7 +77,8 @@ def main():
 
         if acceleration < 0:
             acceleration = 0
-        decceleration = (rolling_res - aero_drag) / WEIGHT
+        decceleration = abs((rolling_res + aero_drag) / WEIGHT)
+    
         display()
         sppedSurface = myfont.render("Speed: " + str(round(speed*3.6)) + " kh/m" , True, (0, 0, 0))
         distanceSurface = myfont.render("Distance: " + f"{distance/1000: .3f} km", True, (0, 0, 0))
